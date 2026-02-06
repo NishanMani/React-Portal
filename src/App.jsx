@@ -1,34 +1,76 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useContext } from "react"
+import { AppContext } from "./context/ AppContext"
+
+import Header from "./components/Header/Header"
+import Sidebar from "./components/Sidebar/Sidebar"
+
+import Dashboard from "./pages/Dashboard/Dashboard"
+import Users from "./pages/Users/Users"
+import Reports from "./pages/Reports/Reports"
+import Profile from "./pages/Profile/Profile"
+import Login from "./pages/Login/Login"
+
+import ProtectedRoute from "./routes/ProtectedRoute"
+import "./App.css"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { state } = useContext(AppContext)
+
+  if (!state.isAuthenticated) {
+    return <Login />
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <BrowserRouter>
+      <div className={`layout ${state.theme}`}>
+        <Header />
+
+        <div className="main">
+          <Sidebar />
+
+          <div className="content">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/users"
+                element={
+                  <ProtectedRoute>
+                    <Users />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/reports"
+                element={
+                  <ProtectedRoute>
+                    <Reports />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </BrowserRouter>
   )
 }
 

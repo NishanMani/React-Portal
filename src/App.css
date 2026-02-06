@@ -1,42 +1,123 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.main {
+  display: flex;
+  flex: 1;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content {
+  flex: 1;
+  padding: 24px;
+  background-color: #f9fafb;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/*Dark*/
+
+.layout.dark {
+  background-color: #111827;
+  color: #f9fafb;
 }
 
-.card {
-  padding: 2em;
+.layout.dark .content {
+  background-color: #1f2937;
 }
 
-.read-the-docs {
-  color: #888;
+.layout.dark .header {
+  background-color: #1f2937;
+  border-bottom: 1px solid #374151;
+}
+
+.layout.dark .theme-btn {
+  background-color: #374151;
+  color: white;
+  border: none;
+}
+
+.layout.dark .card {
+  background-color: #1f2937;
+}
+
+.layout.dark .card h4 {
+  color: #9ca3af;
+}
+
+.layout.dark .table-card {
+  background-color: #1f2937;
+}
+
+.layout.dark th,
+.layout.dark td {
+  border-bottom: 1px solid #374151;
+}
+
+.layout.dark .chart-card {
+  background-color: #1f2937;
+}
+
+.layout.dark table {
+  background-color: #1f2937;
+}
+
+.layout.dark th,
+.layout.dark td {
+  border-bottom: 1px solid #374151;
+}
+
+.layout.dark .profile-form {
+  background-color: #1f2937;
+}
+
+.layout.dark input,
+.layout.dark select {
+  background-color: #111827;
+  color: white;
+  border: 1px solid #374151;
+}
+
+.layout.dark .summary-card,
+.layout.dark table {
+  background-color: #1f2937;
+}
+
+.layout.dark th,
+.layout.dark td {
+  border-bottom: 1px solid #374151;
+}
+
+.layout.light {
+  background-color: #f4f6f8;
+  color: #111827;
+}
+
+.layout.light .header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.layout.light .card {
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.layout.light .table-card,
+.layout.light table {
+  background-color: #ffffff;
+}
+
+.layout.light .chart-card {
+  background-color: #ffffff;
+}
+
+.layout.light .profile-form {
+  background-color: #ffffff;
+}
+
+.layout.light .theme-btn {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #d1d5db;
 }

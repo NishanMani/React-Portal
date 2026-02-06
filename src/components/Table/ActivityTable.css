@@ -1,0 +1,38 @@
+.table-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.table-card h3 {
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.status.Completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status.Pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
